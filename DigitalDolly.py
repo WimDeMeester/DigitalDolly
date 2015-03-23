@@ -14,6 +14,8 @@ file_names = [fn for fn in os.listdir(input_dir) if any([fn.endswith(ext) for ex
 
 for image in sorted(file_names):
     print image
+    im=Image.open(input_dir + "/" + image)
+    print im.size
 #im = Image.open('~/Pictures/IMG_20140320_072340.jpg')
 
 #outfile = "sth2.jpg"
