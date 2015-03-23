@@ -31,12 +31,12 @@ step_y = (final_y - first_y) / (number_of_files - 1)
 
 count = 0
 for image in sorted(file_names):
-    #im=Image.open(input_dir + "/" + image)
+    im=Image.open(input_dir + "/" + image)
     outfile = output_dir + "%07d.jpg" %count
     x = first_x + step_x * count
     y = first_y + step_y * count
-    print "Cropping file " + str(count) + ": im.crop(%d, %d, 1920, 1080)" % (x, y)
-    #region=im.crop((0, 0, 1920, 1080))
-    #region.save(outfile, "JPEG")
+    print "Cropping file " + str(count) + ": im.crop(%d, %d, %d, %d)" % (x, y, x + 1920, y + 1080)
+    region=im.crop((x, y, x + 1920, y + 1080))
+    region.save(outfile, "JPEG")
     count += 1
 
