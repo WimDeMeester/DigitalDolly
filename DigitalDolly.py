@@ -16,13 +16,12 @@ file_names = [fn for fn in os.listdir(input_dir) if any([fn.endswith(ext) for ex
 resolution = Image.open(input_dir + "/" + file_names[0]).size
 print resolution
 
+count = 0
 for image in sorted(file_names):
-    print image
     #im=Image.open(input_dir + "/" + image)
-    #print im.size
-#im = Image.open('~/Pictures/IMG_20140320_072340.jpg')
+    outfile = output_dir + "%07d.jpg" %count
+    print outfile
+    #region=im.crop((0, 0, 1920, 1080))
+    #region.save(outfile, "JPEG")
+    count += 1
 
-#outfile = "sth2.jpg"
-#region=im.crop((0, 0, 1920, 1080))
-##Do some operations here if you want but on region not on im!
-#region.save(outfile, "JPEG")
