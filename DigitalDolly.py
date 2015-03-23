@@ -11,7 +11,7 @@ output_dir = "~/Downloads/"
 included_extentions = ['jpg','bmp','png','gif' ] ;
 
 file_names = [fn for fn in os.listdir(input_dir) if any([fn.endswith(ext) for ext in included_extentions])];
-print file_names
+print sorted(file_names)
 #im = Image.open('~/Pictures/IMG_20140320_072340.jpg')
 
 #outfile = "sth2.jpg"
