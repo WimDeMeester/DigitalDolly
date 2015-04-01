@@ -42,15 +42,22 @@ def dolly(input_dir=input_dir, output_dir=output_dir, first_x=first_x, first_y=f
     resolution = Image.open(input_dir + "/" + file_names[0]).size
     print "Original files have a resolution of " + str(resolution)
 
-    # The first version calculates the movement of the dolly from the bottom right to the top left.
-    # First top-left coordinates
-    first_y = resolution[1] - 1080
-    first_x = resolution[0] - 1920
+    # If first_x is not given, we start at the right side of the image.
+    if (first_x < 0):
+        first_x = resolution[0] - 1920
 
-    # final top-left coordinates
-    final_y = 0
-    final_x = 0
+    # If first_y is not given, we start at the bottom of the image.
+    if (first_y < 0):
+        first_y = resolution[1] - 1080
     
+    # If final_x is not given, we end at the left side of the image.
+    if (final_x < 0):
+        final_x = 0
+    
+    # If final_y is not given, we end at the top of the image.
+    if (final_y < 0):
+        final_y = 0
+        
     step_x = (final_x - first_x) / (number_of_files - 1.)
     step_y = (final_y - first_y) / (number_of_files - 1.)
     
